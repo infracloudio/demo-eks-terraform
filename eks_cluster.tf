@@ -1,11 +1,11 @@
 resource "aws_eks_cluster" "demo-eks-cluster" {
-  name     = "demo-eks-cluster"
+  name     = var.cluster_name
   role_arn = aws_iam_role.eks_cluster_iam_role.arn
 
   version = var.k8s_version
 
   vpc_config {
-    subnet_ids = [for s in aws_subnet.eks_subnets : s.id]
+    subnet_ids = [aws_subnet.eks_subnet_1.id,aws_subnet.eks_subnet_2.id,aws_subnet.eks_subnet_3.id,aws_subnet.eks_subnet_4.id]
   }
 
   depends_on = [

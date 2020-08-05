@@ -14,7 +14,7 @@ resource "aws_subnet" "eks_subnet_1" {
   availability_zone = var.subnet1.availability_zone
 
   tags = {
-    "kubernetes.io/cluster/${aws_eks_cluster.demo-eks-cluster.name}" = "shared"
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
   }
 }
 
@@ -25,7 +25,7 @@ resource "aws_subnet" "eks_subnet_2" {
   availability_zone = var.subnet2.availability_zone
   
   tags = {
-    "kubernetes.io/cluster/${aws_eks_cluster.demo-eks-cluster.name}" = "shared"
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
   }
 }
 
@@ -36,7 +36,7 @@ resource "aws_subnet" "eks_subnet_3" {
   availability_zone = var.subnet3.availability_zone
   
   tags = {
-    "kubernetes.io/cluster/${aws_eks_cluster.demo-eks-cluster.name}" = "shared"
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
   }
 }
 
@@ -47,7 +47,7 @@ resource "aws_subnet" "eks_subnet_4" {
   availability_zone = var.subnet4.availability_zone
   
   tags = {
-    "kubernetes.io/cluster/${aws_eks_cluster.demo-eks-cluster.name}" = "shared"
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
   }
 }
 

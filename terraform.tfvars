@@ -1,7 +1,8 @@
 # In order to configure the resources, only make changes in this file. 
 # Variables defined here are referrenced in the terraform code in other files
 
-
+cluster_name = "demo-eks-cluster"
+node_group_name = "demo_eks_node_group"
 vpc_cidr_block = "10.210.0.0/16"
 subnet1 = { 
     "cidr_block" = "10.210.1.0/24"

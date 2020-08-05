@@ -1,3 +1,16 @@
+variable "cluster_name" {
+  type        = string
+  default     = ""
+  description = "Name of the EKS cluster"
+}
+
+variable "node_group_name" {
+  type        = string
+  default     = ""
+  description = "Name of the Node group"
+}
+
+
 variable "vpc_cidr_block" {
   type        = string
   default     = "10.210.0.0/16"
