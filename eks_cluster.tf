@@ -26,7 +26,7 @@ resource "aws_eks_node_group" "demo_eks_node_group" {
     min_size     = var.eks_node_min_size
   }
 
-  instance_types = var.eks_node_instance_types
+  instance_types = [var.eks_node_instance_types]
   version = var.k8s_version
   ami_type = var.node_ami_type
 
