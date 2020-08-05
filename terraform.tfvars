@@ -3,7 +3,22 @@
 
 
 vpc_cidr_block = "10.210.0.0/16"
-subnet_count = 2
+subnet1 = { 
+    "cidr_block" = "10.210.1.0/24"
+    "availability_zone" = "us-east-1a"
+}
+subnet2 = { 
+    "cidr_block" = "10.210.2.0/24"
+    "availability_zone" = "us-east-1a"
+}
+subnet3 = { 
+    "cidr_block" = "10.210.3.0/24"
+    "availability_zone" = "us-east-1b"
+}
+subnet4 = { 
+    "cidr_block" = "10.210.4.0/24"
+    "availability_zone" = "us-east-1b"
+}
 
 eks_node_desired_size = 3
 eks_node_min_size = 3

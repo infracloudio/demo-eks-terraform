@@ -1,20 +1,3 @@
-# Additional resource that are required fot creating the EKS cluster
-resource "aws_vpc" "eks_vpc" {
-  cidr_block       = var.vpc_cidr_block
-  tags = {
-    Name = "eks-vpc"
-  }
-}
-
-
-resource "aws_subnet" "eks_subnets" {
-  count = var.subnet_count
-
-  cidr_block  = cidrsubnet(aws_vpc.eks_vpc.cidr_block, 8, count.index)
-  vpc_id      = aws_vpc.eks_vpc.id
-}
-
-
 resource "aws_iam_role" "eks_cluster_iam_role" {
   name = "eks_cluster_iam_role"
 

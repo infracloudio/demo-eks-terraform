@@ -18,7 +18,7 @@ resource "aws_eks_node_group" "demo_eks_node_group" {
   cluster_name    = aws_eks_cluster.demo-eks-cluster.name
   node_group_name = "demo_eks_node_group"
   node_role_arn   = aws_iam_role.eks_node_group_iam_role.arn
-  subnet_ids      = [for s in aws_subnet.eks_subnets : s.id]
+  subnet_ids      = [aws_subnet.eks_subnet_1.id,aws_subnet.eks_subnet_2.id,aws_subnet.eks_subnet_3.id,aws_subnet.eks_subnet_4.id]
 
   scaling_config {
     desired_size = var.eks_node_desired_size
