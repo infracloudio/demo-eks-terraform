@@ -37,16 +37,6 @@ variable "subnet4" {
   description = "CIDR and AZ for Subnet4"
 }
 
-variable "subnet5" {
-  type        = map
-  description = "CIDR and AZ for Subnet5"
-}
-
-variable "subnet6" {
-  type        = map
-  description = "CIDR and AZ for Subnet6"
-}
-
 variable "eks_node_desired_size" {
   type        = number
   description = "Desired size of cluster"

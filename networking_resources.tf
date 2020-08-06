@@ -51,29 +51,6 @@ resource "aws_subnet" "eks_subnet_4" {
   }
 }
 
-resource "aws_subnet" "eks_subnet_5" {
-  # Public subnet
-  vpc_id            = aws_vpc.eks_vpc.id
-  cidr_block        = var.subnet5.cidr_block
-  availability_zone = var.subnet5.availability_zone
-  
-  tags = {
-    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
-  }
-}
-
-resource "aws_subnet" "eks_subnet_6" {
-  # Public subnet
-  vpc_id            = aws_vpc.eks_vpc.id
-  cidr_block        = var.subnet6.cidr_block
-  availability_zone = var.subnet6.availability_zone
-  
-  tags = {
-    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
-  }
-}
-
-
 # NAT gateway and EIP for NAT gateway
 resource "aws_eip" "nat-eip" {
   vpc = true
@@ -108,33 +85,23 @@ resource "aws_route_table" "rt-tbl-private" {
 }
 
 # Routing table association: Private
-resource "aws_route_table_association" "rt-tbl-association-private-1" {
+resource "aws_route_table_association" "rt-tbl-association-1" {
   subnet_id      = aws_subnet.eks_subnet_1.id
   route_table_id = aws_route_table.rt-tbl-private.id
 }
 
-resource "aws_route_table_association" "rt-tbl-association-private-2" {
+resource "aws_route_table_association" "rt-tbl-association-2" {
   subnet_id      = aws_subnet.eks_subnet_2.id
   route_table_id = aws_route_table.rt-tbl-private.id
 }
 
-resource "aws_route_table_association" "rt-tbl-association-private-3" {
-  subnet_id      = aws_subnet.eks_subnet_3.id
-  route_table_id = aws_route_table.rt-tbl-private.id
-}
-
 # Routing table association: Public
-resource "aws_route_table_association" "rt-tbl-association-private-4" {
+resource "aws_route_table_association" "rt-tbl-association-3" {
+  subnet_id      = aws_subnet.eks_subnet_3.id
+  route_table_id = aws_route_table.rt-tbl-public.id
+}
+
+resource "aws_route_table_association" "rt-tbl-association-4" {
   subnet_id      = aws_subnet.eks_subnet_4.id
-  route_table_id = aws_route_table.rt-tbl-public.id
-}
-
-resource "aws_route_table_association" "rt-tbl-association-private-5" {
-  subnet_id      = aws_subnet.eks_subnet_5.id
-  route_table_id = aws_route_table.rt-tbl-public.id
-}
-
-resource "aws_route_table_association" "rt-tbl-association-private-6" {
-  subnet_id      = aws_subnet.eks_subnet_6.id
   route_table_id = aws_route_table.rt-tbl-public.id
 }
