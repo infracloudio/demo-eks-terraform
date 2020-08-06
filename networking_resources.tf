@@ -2,7 +2,7 @@
 resource "aws_vpc" "eks_vpc" {
   cidr_block       = var.vpc_cidr_block
   tags = {
-    Name = "eks-vpc"
+    Name = "eks-demo-vpc-rahulkadam"
   }
 }
 

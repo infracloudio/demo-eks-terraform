@@ -2,8 +2,8 @@
 # Variables defined here are referrenced in the terraform code in other files
 
 # EKS Cluster
-cluster_name = "demo-eks-cluster"
-node_group_name = "demo_eks_node_group"
+cluster_name = "demo-eks-cluster-rahulkadam"
+node_group_name = "demo_eks_node_group-rahulkadam"
 eks_node_desired_size = 3
 eks_node_min_size = 3
 eks_node_max_size = 3
