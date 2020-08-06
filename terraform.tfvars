@@ -3,7 +3,7 @@
 
 # EKS Cluster
 cluster_name = "demo-eks-cluster-rahulkadam"
-node_group_name = "demo_eks_node_group-rahulkadam"
+node_group_name = "demo-eks-node-group-rahulkadam"
 eks_node_desired_size = 3
 eks_node_min_size = 3
 eks_node_max_size = 3
