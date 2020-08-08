@@ -6,7 +6,6 @@ provider "aws" {
 }
 
 data "aws_eks_cluster_auth" "cluster-auth" {
-  depends_on = [aws_eks_cluster.demo-eks-cluster]
   name       = aws_eks_cluster.demo-eks-cluster.name
 }
 

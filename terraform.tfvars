@@ -7,7 +7,7 @@ node_group_name = "demo-eks-node-group-rahulkadam"
 eks_node_desired_size = 2
 eks_node_min_size = 2
 eks_node_max_size = 2
-eks_node_instance_types = "t2.micro"
+eks_node_instance_types = "t2.medium"
 node_ami_type = "AL2_x86_64"
 k8s_version = "1.17"
 
