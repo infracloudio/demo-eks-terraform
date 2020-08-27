@@ -48,7 +48,3 @@ output "eks_cluster_name" {
 output "eks_cluster_certificate_authority" {
   value = aws_eks_cluster.demo-eks-cluster.certificate_authority.0.data
 }
-
-# output "eks_cluster_asg_name" {
-#   value = aws_eks_cluster.demo-eks-cluster.resources[0].autoscaling_groups[0].name
-# }
