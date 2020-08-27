@@ -8,11 +8,17 @@
 ### Information about files in this repo and how to make the changes
 
 **provider.tf** : Contains provider and backend information.
+
 **helm_charts.tf**: Contains code for creating namespaces and installing helm charts.
+
 **eks_cluster.tf** : Contains terraform code specific to EKS cluster and node group.
-**variables.tf and terraform.tfvars** : Variable file. We only need to make changes in this file as per the configuration requirement. 
+
+**variables.tf and terraform.tfvars** : Variable file. We only need to make changes in this file as per the configuration requirement.
+
 **networking_resources.tf**: Contains code for networking resources like vpc, subnets, NAT, route table etc.
+
 **iam.tf**: Contains code for IAM resources (policies and roles to be attached to cluster)
+
 **output.tf** : This file has code related to any information that the end user might need, and we want terraform to tell us the same. Edit this file if any more information is needed.
 
 

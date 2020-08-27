@@ -6,21 +6,21 @@ provider "aws" {
 }
 
 data "aws_eks_cluster_auth" "cluster-auth" {
-  name       = aws_eks_cluster.demo-eks-cluster.name
+  name       = module.eks_cluster.eks_cluster_name
 }
 
 provider "helm" {
 kubernetes {
-    host                   = aws_eks_cluster.demo-eks-cluster.endpoint
-    cluster_ca_certificate = base64decode(aws_eks_cluster.demo-eks-cluster.certificate_authority.0.data)
+    host                   = module.eks_cluster.endpoint
+    cluster_ca_certificate = base64decode(module.eks_cluster.eks_cluster_certificate_authority)
     token                  = data.aws_eks_cluster_auth.cluster-auth.token
     load_config_file       = false
   }
 }
 
 provider "kubernetes" {
-    host                   = aws_eks_cluster.demo-eks-cluster.endpoint
-    cluster_ca_certificate = base64decode(aws_eks_cluster.demo-eks-cluster.certificate_authority.0.data)
+    host                   = module.eks_cluster.endpoint
+    cluster_ca_certificate = base64decode(module.eks_cluster.eks_cluster_certificate_authority)
     token                  = data.aws_eks_cluster_auth.cluster-auth.token
     load_config_file       = false
 }

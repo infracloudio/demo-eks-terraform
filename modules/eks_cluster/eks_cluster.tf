@@ -36,3 +36,19 @@ resource "aws_eks_node_group" "demo_eks_node_group" {
     aws_iam_role_policy_attachment.eks_node_group_iam_policy_attachment-AmazonEC2ContainerRegistryReadOnly
   ]
 }
+
+output "endpoint" {
+  value = aws_eks_cluster.demo-eks-cluster.endpoint
+}
+
+output "eks_cluster_name" {
+  value = aws_eks_cluster.demo-eks-cluster.name
+}
+
+output "eks_cluster_certificate_authority" {
+  value = aws_eks_cluster.demo-eks-cluster.certificate_authority.0.data
+}
+
+# output "eks_cluster_asg_name" {
+#   value = aws_eks_cluster.demo-eks-cluster.resources[0].autoscaling_groups[0].name
+# }
